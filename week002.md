@@ -14,9 +14,10 @@ Coin Collection
 * set and get attribute
 * for loop
 * task.wait()
-* exercises, complete the TODOs in CoinService script
+* exercises, complete the TODOs in the CoinService script
 
 Purchase Jump Power
-* check for sufficient coins
-* increase jumping power
-* coins are spent
+* exercises, complete the TODOs in the JumpService script
+  * check for sufficient coins
+  * increase jumping power
+  * coins are spent
