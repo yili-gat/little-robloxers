@@ -1,4 +1,4 @@
-[Game template]()
+[Game template](https://github.com/yili-gat/little-robloxers/blob/main/week002/obby_template.rbxl)
 * Goal of the game, play test it, what do you see?
 
 Coding Fundamentals
