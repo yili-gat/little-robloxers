@@ -9,7 +9,7 @@ part.Color = Color3.fromRGB(0, 120, 120)
 
 -- set attribute
 part:SetAttribute("Owner", "Matthew")
---part:SetAttribute("Owner", "Miachel")
+--part:SetAttribute("Owner", "Michael")
 
 -- a boolean variable
 local isMatthew = part:GetAttribute("Owner") == "Matthew" 
