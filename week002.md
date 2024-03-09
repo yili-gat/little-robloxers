@@ -3,10 +3,10 @@
 
 Coding Fundamentals
 * Lua
-* print
+* print() and output window
 * variable
-* property
-* if conditions
+* property and attribute
+* if condition
 * comment
 
 Coin Collection
