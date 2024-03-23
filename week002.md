@@ -11,10 +11,10 @@ Coding Fundamentals
 
 Coin Collection
 * discussion, what's the expected behaviour?
-* set and get attribute
-* for loop
-* task.wait()
 * exercises, complete the TODOs in the CoinService script
+  * set and get attribute
+  * for loop
+  * task.wait()
 
 Purchase Jump Power
 * exercises, complete the TODOs in the JumpService script
