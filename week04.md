@@ -1,0 +1,1 @@
+If you no longer have the project from last time, or you missed the last class, don't worry, you can download the [Game template](https://github.com/yili-gat/little-robloxers/blob/main/week04/obby_01_collection_coins_purchase_jumps.rbxl) to start with.
