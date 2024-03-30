@@ -1,13 +1,5 @@
-[Game template](https://github.com/yili-gat/little-robloxers/blob/main/week002/obby_template.rbxl)
+[Game template](https://github.com/yili-gat/little-robloxers/blob/main/week03/obby_template.rbxl)
 * Goal of the game, play test it, what do you see?
-
-Coding Fundamentals
-* Lua
-* print() and output window
-* variable
-* property and attribute
-* if condition
-* comment
 
 Coin Collection
 * discussion, what's the expected behaviour?
