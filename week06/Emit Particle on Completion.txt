@@ -1,0 +1,41 @@
+# Emit Particle on Completion
+
+In ParticleScript, add the following to the bottom:
+
+local function playParticleBurst(player)
+	print("playParticleBurst, player: " .. player.Name)
+	local character = player.Character
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+	local particleAttachment = humanoidRootPart:WaitForChild("ParticleAttachment")
+
+	for _, particle in particleAttachment:GetChildren() do
+		print("in particleAttachment:GetChildren()")
+		if particle:IsA("ParticleEmitter") then
+			print("found ParticleEmitter")
+			particle:Emit(50)
+		end
+	end
+end
+
+local remoteEvent = ReplicatedStorage:WaitForChild("PlayParticleBurstEvent")
+
+remoteEvent.OnClientEvent:Connect(function()
+	print("on PlayParticleBurstEvent")
+	playParticleBurst(Players.LocalPlayer)
+end)
+
+
+In WinnerService, define the remote event:
+
+local remoteEvent = Instance.new("RemoteEvent")
+remoteEvent.Name = "PlayParticleBurstEvent"
+remoteEvent.Parent = game.ReplicatedStorage
+
+and fire it when user reaches the top platform:
+
+		if elapsedTime then
+			print("time used " .. elapsedTime)
+			PlayerDataChanged:FireClient(player, elapsedTime)
+			remoteEvent:FireClient(player)
+		else
+
