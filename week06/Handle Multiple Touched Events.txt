@@ -1,0 +1,64 @@
+Handle Multiple Touched Events
+ServerStorage - PlayerData.
+PlayerData.COIN_KEY_NAME = "Coins"
+PlayerData.JUMP_KEY_NAME = "Jump"
+PlayerData.COMPLETED = "Completed"
+
+local playerData = {
+	--[[
+		[userId: string] = {
+			["Coins"] = coinAmount: number,
+			["Jump"] = jumpPower: number
+		}
+	--]]
+}
+
+local DEFAULT_PLAYER_DATA = {
+	[PlayerData.COIN_KEY_NAME] = 0,
+	[PlayerData.JUMP_KEY_NAME] = 0,
+	[PlayerData.COMPLETED] = false,
+}
+
+
+Update WinnerService.
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local ServerStorage = game:GetService("ServerStorage")
+
+local PlayerData = require(ServerStorage.PlayerData)
+
+-- The function to be called when the player reaches the top platform
+local function onTopPlatformTouched(otherPart)
+	--print("onTopPlatformTouched")
+	local character = otherPart.Parent
+	local player = Players:GetPlayerFromCharacter(character)
+	if player and not PlayerData.getValue(player, "Completed") then 
+		print(player.Name .. "reached the top platform!")
+		PlayerData.updateValue(player, "Completed", function(_)
+			return true
+		end)
+	end
+end
+
+-- Connect the touched event to the function
+Workspace.World.Platforms.Level_1.PlatformA.PlatformTerrain.Touched:Connect(onTopPlatformTouched)
+
+
+Allow Replay. Still in WinnerService. Add the following to the bottom.
+local function onPlayerAdded(player)
+	player.CharacterAdded:Connect(function(character)
+		print("CharacterAdded")
+		PlayerData.updateValue(player, "Completed", function(_)
+			return false
+		end)
+	end)
+end
+
+for _, player in Players:GetPlayers() do
+	onPlayerAdded(player)
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+
+
